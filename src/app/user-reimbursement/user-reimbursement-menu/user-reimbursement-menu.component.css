@@ -1,0 +1,12 @@
+nav {
+	background-color: rgb(210, 188, 188);
+	height: calc(100vh - 80px);
+	width: 100%;
+	position: relative;
+	left: 0;
+}
+nav span {
+	font-size: 0.8rem;
+	text-align: center;
+	padding: 10px;
+}

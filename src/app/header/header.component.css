@@ -1,0 +1,15 @@
+.header {
+	height: 80px;
+	padding-top: 10px;
+	background-color: rgb(210, 188, 188);
+}
+h2 {
+	font-size: 1.3rem;
+}
+p,
+h2 {
+	padding: 10px;
+}
+.date {
+	text-align: end;
+}

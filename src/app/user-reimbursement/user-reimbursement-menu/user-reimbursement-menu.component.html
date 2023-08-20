@@ -1,25 +1,18 @@
-<!-- <nav><a class="navbar-brand">MENU:</a>
-  <ul class="nav navbar-nav">
-    <li><a>My reimbursements</a></li>
-    <li><a>New reimbursement</a></li>
-    <li><a>Print reimbursement</a></li>
-  </ul>
-</nav> -->
-
 <!-- Sidebar -->
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
   <div class="position-sticky">
     <div class="list-group list-group-flush mx-3 mt-4">
-      <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+      <a routerLinkActive="active" routerLink="/user" [routerLinkActiveOptions]="{exact: true}"
+        class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
         <fa-icon [icon]="faHouse"></fa-icon>
         <span>My reimbursements</span>
       </a>
-      <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+      <a routerLinkActive="active" routerLink="/user/new" class="list-group-item list-group-item-action py-2 ripple">
         <fa-icon [icon]="faPlus"></fa-icon><span>New reimbursement</span>
       </a>
-      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><fa-icon
-          [icon]="faPrint"></fa-icon><span>Print reimbursement</span></a>
-      <a href="#" class="list-group-item list-group-item-action py-2 ripple"><fa-icon
+      <!-- <a routerLinkActive="aftive" class="list-group-item list-group-item-action py-2 ripple"><fa-icon
+          [icon]="faPrint"></fa-icon><span>Print reimbursement</span></a> -->
+      <a class="list-group-item list-group-item-action py-2 ripple"><fa-icon
           [icon]="faRightToBracket"></fa-icon><span>Logout</span></a>
     </div>
   </div>

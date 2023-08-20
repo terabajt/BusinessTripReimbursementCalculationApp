@@ -1,0 +1,6 @@
+<a class="list-group-item list-group-item-action list-group-item-primary"><span>{{
+    reimbursement.tripDate}}</span> | <span>{{
+    reimbursement.receiptsType}}</span> | <span>{{ reimbursement.receiptsAmount}}</span> | <span>{{
+    reimbursement.isSettled ? 'Yes' : 'No'}}</span> <button [routerLink]="[index, 'edit']"
+    class="btn btn-primary">EDIT</button>
+  <button class="btn btn-secondary" style="z-index: 999;" (click)="onAddToDettled(index)">Add to settled</button></a>

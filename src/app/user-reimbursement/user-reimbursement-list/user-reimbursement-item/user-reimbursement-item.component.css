@@ -1,0 +1,17 @@
+a:hover {
+	background-color: #9b9ea1;
+}
+a {
+	transition: transform 0.3s;
+}
+a:hover {
+	transform: scale(1.01);
+}
+span {
+	padding-left: 25px;
+	padding-right: 35px;
+}
+button {
+	font-size: 0.8rem;
+	margin-left: 15px;
+}

@@ -10,3 +10,15 @@
     [reimbursement]='reimbursementEl' [index]="i"></app-user-reimbursement-item>
 
 </div>
+<div class="col-xs-12" *ngIf="settleds.length">
+  <h2>Lists of add to settled:</h2>
+  <ul class="list-group" *ngFor="let settled of settleds; let id = index">
+    <li class="list-group-item">{{ id + 1 }} : {{ settled.tripDate }} - {{ settled.receiptsType }} - {{
+      settled.receiptsAmount | currency
+      }}</li>
+
+  </ul>
+</div>
+<div class="col-xs-12" *ngIf="sumSettled">
+  <h2>Reimbursement of business travel expenses: {{ sumSettled | currency }}</h2>
+</div>

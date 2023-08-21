@@ -11,8 +11,12 @@ import { Subscription } from "rxjs";
 })
 export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	reimbursements: Reimbursement[] = [];
+	settleds: Reimbursement[] = [];
+	sumSettled: number;
 
-	sub$: Subscription;
+	subReimbursements$: Subscription;
+	subSettleds$: Subscription;
+	subSumSettled$: Subscription;
 	constructor(
 		private userReimbursementService: UserReimbursementService,
 		private router: Router,
@@ -20,15 +24,24 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
-		this.sub$ = this.userReimbursementService.itemChanged.subscribe((reimbursements: Reimbursement[]) => {
-			this.reimbursements = this.reimbursements;
+		this.subReimbursements$ = this.userReimbursementService.itemChanged.subscribe((reimbursements: Reimbursement[]) => {
+			this.reimbursements = reimbursements;
+		});
+
+		this.subSettleds$ = this.userReimbursementService.settledChanged.subscribe((settleds: Reimbursement[]) => {
+			this.settleds = settleds;
 		});
 		this.reimbursements = this.userReimbursementService.getReimbursements();
+		this.settleds = this.userReimbursementService.getSettledList();
+		this.subSumSettled$ = this.userReimbursementService.sumSettledChanged.subscribe((sum: number) => {
+			this.sumSettled = sum;
+		});
 	}
 	onNewReimbursement() {
 		// this.router.navigate(["new"], { relativeTo: this.route });
 	}
 	ngOnDestroy(): void {
-		this.sub$.unsubscribe();
+		this.subReimbursements$.unsubscribe();
+		this.subSettleds$.unsubscribe();
 	}
 }

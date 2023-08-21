@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { Reimbursement } from "../../reimbursement.model";
 import { ActivatedRoute, Router } from "@angular/router";
+import { UserReimbursementService } from "../../user-reimbursement.service";
 
 @Component({
 	selector: "app-user-reimbursement-item",
@@ -13,12 +14,17 @@ export class UserReimbursementItemComponent {
 	@Input()
 	index!: number;
 
-	constructor(private router: Router, private route: ActivatedRoute) {}
+	constructor(
+		private router: Router,
+		private route: ActivatedRoute,
+		private reimbursementService: UserReimbursementService
+	) {}
 
 	onEdit(id: number) {
 		// this.router.navigate([id, "/edit"], { relativeTo: this.route });
 	}
-	onAddToDettled(id: number) {
-		console.log("add");
+	onAddToSettled(id: number) {
+		console.log(this.reimbursement);
+		this.reimbursementService.addToSettledList(this.reimbursement, id);
 	}
 }

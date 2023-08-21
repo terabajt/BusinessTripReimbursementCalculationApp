@@ -11,8 +11,11 @@ export class UserReimbursementService {
 		new Reimbursement("2023-08-21", "Taxi", 9.99, false),
 		new Reimbursement("2023-08-22", "Train", 5.98, false),
 	];
+	private settledLists: Reimbursement[] = [];
 
 	itemChanged = new Subject<Reimbursement[]>();
+	settledChanged = new Subject<Reimbursement[]>();
+	sumSettledChanged = new Subject<number>();
 
 	getReimbursements() {
 		return this.reimbursements.slice();
@@ -37,5 +40,20 @@ export class UserReimbursementService {
 	deleteReimbursement(index: number) {
 		this.reimbursements.splice(index, 1);
 		this.itemChanged.next(this.reimbursements.slice());
+	}
+
+	getSettledList() {
+		return this.settledLists.slice();
+	}
+	addToSettledList(reimbursement: Reimbursement, id: number) {
+		this.settledLists.push(reimbursement);
+		this.reimbursements[id].isSettled = true;
+		this.settledChanged.next(this.settledLists.slice());
+		//Sum of settled object
+		let sum: number = 0;
+		this.settledLists.map(item => {
+			sum += item.receiptsAmount;
+		});
+		this.sumSettledChanged.next(sum);
 	}
 }

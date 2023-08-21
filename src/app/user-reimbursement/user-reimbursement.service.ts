@@ -47,7 +47,11 @@ export class UserReimbursementService {
 	}
 	addToSettledList(reimbursement: Reimbursement, id: number) {
 		this.settledLists.push(reimbursement);
-		this.reimbursements[id].isSettled = true;
+
+		//Remove element of first object
+		this.reimbursements.splice(id, 1);
+		this.itemChanged.next(this.reimbursements.slice());
+
 		this.settledChanged.next(this.settledLists.slice());
 		//Sum of settled object
 		let sum: number = 0;

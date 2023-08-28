@@ -2,7 +2,9 @@
 
 ## Deploy up-to-date version
 
-The up-to-date version of app is on the 
+The up-to-date version of app is on the [DEPLOY](https://businesstripreimbursementcalc.web.app) site.
+
+## Manual
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 

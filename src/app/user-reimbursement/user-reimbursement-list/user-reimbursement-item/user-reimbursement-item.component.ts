@@ -24,7 +24,6 @@ export class UserReimbursementItemComponent {
 		// this.router.navigate([id, "/edit"], { relativeTo: this.route });
 	}
 	onAddToSettled(id: number) {
-		console.log(this.reimbursement);
 		this.reimbursementService.addToSettledList(this.reimbursement, id);
 	}
 }

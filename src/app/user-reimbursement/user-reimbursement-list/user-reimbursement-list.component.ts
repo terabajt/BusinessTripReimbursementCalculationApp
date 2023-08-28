@@ -3,6 +3,7 @@ import { Reimbursement } from "../reimbursement.model";
 import { UserReimbursementService } from "../user-reimbursement.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { ToReimbursement } from "../toReimbursement.model";
 
 @Component({
 	selector: "app-user-reimbursement-list",
@@ -13,10 +14,13 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	reimbursements: Reimbursement[] = [];
 	settleds: Reimbursement[] = [];
 	sumSettled: number;
+	toReimbursements: ToReimbursement[] = [];
 
 	subReimbursements$: Subscription;
 	subSettleds$: Subscription;
 	subSumSettled$: Subscription;
+	subToReimbursements$: Subscription;
+
 	constructor(
 		private userReimbursementService: UserReimbursementService,
 		private router: Router,
@@ -36,6 +40,12 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 		this.subSumSettled$ = this.userReimbursementService.sumSettledChanged.subscribe((sum: number) => {
 			this.sumSettled = sum;
 		});
+
+		this.subToReimbursements$ = this.userReimbursementService.toReimbursementsChanged.subscribe(
+			(toReimbursement: ToReimbursement[]) => {
+				this.toReimbursements = this.userReimbursementService.getToReimbursements();
+			}
+		);
 	}
 	onNewReimbursement() {
 		// this.router.navigate(["new"], { relativeTo: this.route });
@@ -43,5 +53,6 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	ngOnDestroy(): void {
 		this.subReimbursements$.unsubscribe();
 		this.subSettleds$.unsubscribe();
+		this.subReimbursements$.unsubscribe();
 	}
 }

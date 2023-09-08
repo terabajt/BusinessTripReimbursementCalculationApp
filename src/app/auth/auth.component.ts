@@ -15,6 +15,8 @@ export class AuthComponent implements OnDestroy {
 	isLoginMode = true;
 	isLoading = false;
 	error: string = null;
+	emailValue: string = null;
+	passwordValue: string = null;
 	@ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
 	private closeSub$: Subscription;
 	private authSub$: Subscription;
@@ -73,5 +75,14 @@ export class AuthComponent implements OnDestroy {
 	}
 	ngOnDestroy(): void {
 		this.authSub$.unsubscribe();
+	}
+
+	onAsAdmin() {
+		this.emailValue = "admin@admin.pl";
+		this.passwordValue = "123456";
+	}
+	onAsUser() {
+		this.emailValue = "user@user.pl";
+		this.passwordValue = "123456";
 	}
 }

@@ -7,7 +7,8 @@
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="email" id="email" class="form-control" ngModel name="email" required email>
+        <input type="email" id="email" class="form-control" ngModel name="email" required email
+          [(ngModel)]="emailValue">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -17,12 +18,18 @@
         <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign
           Up'}}</button>
         |
-        <button class="btn btn-primary" (click)="onSwitchMode()" type="button"> {{ isLoginMode ? ' Switch to Sign Up
+        <!-- <button class="btn btn-primary" (click)="onSwitchMode()" type="button"> {{ isLoginMode ? ' Switch to Sign Up
           mode' :
-          'Switch to Login mode'}}</button>
+          'Switch to Login mode'}}</button> -->
+        <button class="btn btn-secondary" (click)="onAsUser()" type="button">Login as USER</button>
+        <button class="btn btn-success" (click)="onAsAdmin()" type="button">Login as ADMIN</button>
       </div>
-      <p>Login to user: user@user.pl pass: 123456</p>
-      <p>Login to admin: admin@admin.pl pass: 123456</p>
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-md-offset-1 mt-3 alert alert-secondary">
+          <p>Login to user: user@user.pl pass: 123456</p>
+          <p>Login to admin: admin@admin.pl pass: 123456</p>
+        </div>
+      </div>
     </form>
   </div>
 </div>

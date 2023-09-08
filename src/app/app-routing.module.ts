@@ -7,6 +7,10 @@ const appRoutes: Routes = [
 		path: "user",
 		loadChildren: () => import("./user-reimbursement/user-reimbursement.module").then(m => m.UserReimbursementModule),
 	},
+	{
+		path: "auth",
+		loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule),
+	},
 ];
 
 @NgModule({

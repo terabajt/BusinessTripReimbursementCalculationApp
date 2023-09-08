@@ -12,8 +12,8 @@
       </a>
       <!-- <a routerLinkActive="aftive" class="list-group-item list-group-item-action py-2 ripple"><fa-icon
           [icon]="faPrint"></fa-icon><span>Print reimbursement</span></a> -->
-      <a class="list-group-item list-group-item-action py-2 ripple"><fa-icon
-          [icon]="faRightToBracket"></fa-icon><span>Logout</span></a>
+      <a routerLinkActive="active" style="cursor: pointer;" class="list-group-item list-group-item-action py-2 ripple"
+        (click)="logout()"><fa-icon [icon]="faRightToBracket"></fa-icon><span>Logout</span></a>
     </div>
   </div>
 </nav>

@@ -4,6 +4,14 @@
 
 The up-to-date version of app is on the [DEPLOY](https://businesstripreimbursementcalc.web.app) site.
 
+
+## Add your environments file
+Into ./environments add your environment.ts file with your firebase API key like:
+export const environment = {
+	production: false,
+	firebaseAPIKey: "YOUR_FIREBASE_API_KEY",
+};
+
 ## Manual
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.

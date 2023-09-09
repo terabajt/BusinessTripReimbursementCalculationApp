@@ -13,6 +13,11 @@ export class UserReimbursementMenuComponent {
 	faPlus = faPlus;
 	faPrint = faPrint;
 	faRightToBracket = faRightToBracket;
+	isNavbarCollapsed = true;
+
+	toggleNavbar() {
+		this.isNavbarCollapsed = !this.isNavbarCollapsed;
+	}
 
 	logout() {
 		this.authService.logout();

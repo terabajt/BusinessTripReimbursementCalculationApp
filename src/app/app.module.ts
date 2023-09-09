@@ -10,7 +10,7 @@ import { LoggingService } from "./logging.service";
 
 @NgModule({
 	declarations: [AppComponent, HeaderComponent],
-	imports: [BrowserModule, NgbModule, AppRoutingModule, HttpClientModule, SharedModule],
+	imports: [BrowserModule, NgbModule, AppRoutingModule, HttpClientModule, SharedModule, NgbModule],
 	providers: [LoggingService],
 	bootstrap: [AppComponent],
 })

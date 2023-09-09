@@ -1,19 +1,30 @@
-<!-- Sidebar -->
-<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-  <div class="position-sticky">
-    <div class="list-group list-group-flush mx-3 mt-4">
-      <a routerLinkActive="active" routerLink="/user" [routerLinkActiveOptions]="{exact: true}"
-        class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-        <fa-icon [icon]="faHouse"></fa-icon>
-        <span>My reimbursements</span>
-      </a>
-      <a routerLinkActive="active" routerLink="/user/new" class="list-group-item list-group-item-action py-2 ripple">
-        <fa-icon [icon]="faPlus"></fa-icon><span>New reimbursement</span>
-      </a>
-      <!-- <a routerLinkActive="aftive" class="list-group-item list-group-item-action py-2 ripple"><fa-icon
-          [icon]="faPrint"></fa-icon><span>Print reimbursement</span></a> -->
-      <a routerLinkActive="active" style="cursor: pointer;" class="list-group-item list-group-item-action py-2 ripple"
-        (click)="logout()"><fa-icon [icon]="faRightToBracket"></fa-icon><span>Logout</span></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()"
+      [attr.aria-expanded]="isNavbarCollapsed ? 'false' : 'true'" aria-controls="navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{'show': !isNavbarCollapsed}" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="/user" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+            <fa-icon [icon]="faHouse"></fa-icon>
+            <span>My reimbursements</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLinkActive="active" routerLink="/user/new" class="nav-link">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <span>New reimbursement</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a style="cursor: pointer;" class="nav-link" (click)="logout()">
+            <fa-icon [icon]="faRightToBracket"></fa-icon>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

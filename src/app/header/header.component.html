@@ -1,13 +1,9 @@
 <div class="header">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-4">
+      <div class="col-12">
         <h2>Business Trip Reimbursement Calculation</h2>
-      </div>
-      <div class="col-12 col-md-4">
-        <p *ngIf="userName">Login as: {{userName}}</p>
-      </div>
-      <div class="col-12 col-md-4">
+        <p class="user-name" *ngIf="userName">Login as: <span>{{userName}}</span></p>
         <p class="date">Today is: {{ date }}</p>
       </div>
     </div>

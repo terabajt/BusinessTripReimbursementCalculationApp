@@ -1,15 +1,36 @@
 .header {
 	height: 80px;
 	padding-top: 10px;
-	background-color: rgb(210, 188, 188);
+	background-color: #f8f9fa;
 }
 h2 {
-	font-size: 1.3rem;
+	font-size: 1rem;
 }
 p,
-h2 {
-	padding: 10px;
-}
+h2,
 .date {
-	text-align: end;
+	font-size: 0.8rem;
+	display: inline-block;
+	padding: 3px;
+}
+
+.user-name span {
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+@media (min-width: 992px) {
+	.header {
+		padding-top: 10px;
+		background-color: rgb(210, 188, 188);
+	}
+	h2 {
+		font-size: 1.3rem;
+	}
+	p,
+	h2 {
+		padding: 10px;
+	}
+	.date {
+		text-align: end;
+	}
 }

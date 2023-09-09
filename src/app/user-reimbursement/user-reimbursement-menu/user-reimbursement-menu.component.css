@@ -1,12 +1,56 @@
 nav {
-	background-color: rgb(210, 188, 188);
-	height: calc(100vh - 80px);
-	width: 100%;
-	position: relative;
-	left: 0;
+	position: absolute;
+	top: 20px;
+	z-index: 9999;
+	background-color: rgba(248, 249, 250, 0.95) !important;
+	border-bottom-right-radius: 25px;
 }
 nav span {
 	font-size: 0.8rem;
 	text-align: center;
 	padding: 10px;
+}
+.navbar {
+	margin-left: 15px;
+}
+li {
+	--s: 0.1em; /* the thickness of the line */
+	--c: #1095c1; /* the color */
+
+	color: #0000 !important;
+	padding-bottom: var(--s);
+	background: linear-gradient(90deg, var(--c) 50%, #000 0) calc(100% - var(--_p, 0%)) / 200% 100%,
+		linear-gradient(var(--c) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+	-webkit-background-clip: text, padding-box;
+	background-clip: text, padding-box;
+	transition: 0.5s;
+}
+
+li:hover {
+	--_p: 100%;
+	z-index: 999999;
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav,
+	.navbar > .container,
+	.navbar > .container-fluid,
+	.navbar > .container-lg,
+	.navbar > .container-md,
+	.navbar > .container-sm,
+	.navbar > .container-xl,
+	.navbar > .container-xxl,
+	.navbar-expand-lg .navbar-collapse {
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		height: 100%;
+	}
+	nav {
+		background-color: rgb(210, 188, 188);
+		height: 100%;
+		position: relative;
+		left: 0;
+		top: 0;
+	}
 }

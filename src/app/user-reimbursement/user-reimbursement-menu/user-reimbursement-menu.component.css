@@ -48,9 +48,9 @@ li:hover {
 	}
 	nav {
 		background-color: rgb(210, 188, 188);
-		height: 100%;
 		position: relative;
 		left: 0;
-		top: 0;
+		top: -5px;
+		box-shadow: 5px 5px 10px;
 	}
 }

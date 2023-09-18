@@ -7,24 +7,23 @@ The up-to-date version of app is on the [DEPLOY](https://businesstripreimburseme
 ## About
 This pplication has 2 views (end user + administrator) with different capabilities:
 For the end user:
--	Button to create a new reimbursement claim
-o	Field to input the trip date
-o	Possibility to add multiple receipts from a dropdown list to claim refund (for example: taxi, hotel, plane ticket, train)
-o	Possibility to claim for a daily allowance:
-	Input a number of days or time range of trip thanks to which it is possible to calculate reimbursement
-	A checkbox is available to disable on specific days
-o	Possibility to claim for reimbursement of car usage by driven distance:
-	Input a distance which results in an amount to reimburse
-o	Output field with total reimbursement amount
+Markup*	Button to create a new reimbursement claim
+*	Field to input the trip date
+*	Possibility to add multiple receipts from a dropdown list to claim refund (for example: taxi, hotel, plane ticket, train)
+*	Possibility to claim for a daily allowance:
+  *	Input a number of days or time range of trip thanks to which it is possible to calculate reimbursement
+  *	A checkbox is available to disable on specific days
+  * Possibility to claim for reimbursement of car usage by driven distance:
+    *Input a distance which results in an amount to reimburse
+* Output field with total reimbursement amount
 (Sum of all receipts, daily allowance and/or car mileage)
  
 For the administrator:
-o	Field to input rates for daily allowance and mileage
-	Initially configure 15$/day for the daily allowance
-	Initially configure 0.3 $/km for the car mileage
-o	Possibility to edit the list of available receipts from the drop down list
-o	Possibility to define reimbursement limits for single calculation result (per receipt type, total reimbursement, or distance)
-
+*	Field to input rates for daily allowance and mileage
+    *	Initially configure 15$/day for the daily allowance
+    *	Initially configure 0.3 $/km for the car mileage
+*	Possibility to edit the list of available receipts from the drop down list
+*	Possibility to define reimbursement limits for single calculation result (per receipt type, total reimbursement, or distance)
 ## Add your environments file
 Into ./environments add your environment.ts file with your firebase API key like:
 export const environment = {

@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-xs-12">
-    <h2>Lists of reimbursement:</h2>
+    <h2 *ngIf="amIAdmin">You are logged in as ADMIN!</h2>
+    <h2 *ngIf="!amIAdmin">Lists of reimbursement:</h2>
   </div>
 </div>
-<div class="list-group"><a href="#" class="list-group-item list-group-item-action list-group-item-primary"><span>DATE OF
+<div *ngIf="!amIAdmin" class="list-group"><a href="#"
+    class="list-group-item list-group-item-action list-group-item-primary"><span>DATE OF
       TRIP</span>
     | <span>RECIPES TYPE</span> | <span>RECIPES AMOUNT</span> | <span>IS SETTLED?</span></a>
   <app-user-reimbursement-item *ngFor="let reimbursementEl of reimbursements; let i = index"

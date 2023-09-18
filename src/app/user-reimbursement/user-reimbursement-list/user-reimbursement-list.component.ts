@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ToReimbursement } from "../toReimbursement.model";
 import { DataStorageService } from "src/app/shared/data-storage.service";
+import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
 	selector: "app-user-reimbursement-list",
@@ -16,6 +17,7 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	settleds: Reimbursement[] = [];
 	sumSettled: number;
 	toReimbursements: ToReimbursement[] = [];
+	amIAdmin = false;
 
 	subReimbursements$: Subscription;
 	subSettleds$: Subscription;
@@ -26,11 +28,15 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 		private userReimbursementService: UserReimbursementService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private storageService: DataStorageService
+		private storageService: DataStorageService,
+		private authService: AuthService
 	) {}
 
 	ngOnInit(): void {
 		// this.storageService.fetchReimbursement();
+		this.authService.amIAdmin.subscribe(item => {
+			this.amIAdmin = item;
+		});
 		this.storageService.storeReimbursement();
 
 		this.subReimbursements$ = this.userReimbursementService.itemChanged.subscribe((reimbursements: Reimbursement[]) => {

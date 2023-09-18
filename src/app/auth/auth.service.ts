@@ -20,6 +20,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
 	user = new BehaviorSubject<User>(null);
+	amIAdmin = new BehaviorSubject<boolean>(null);
 	private tokenExpirationTimer: any;
 	token: string = null;
 	constructor(private http: HttpClient, private router: Router) {}
@@ -54,6 +55,7 @@ export class AuthService {
 				catchError(this.handleError),
 				tap(resData => {
 					this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
+					resData.email === "admin@admin.pl" ? this.amIAdmin.next(true) : this.amIAdmin.next(false);
 				})
 			);
 	}

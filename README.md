@@ -7,7 +7,7 @@ The up-to-date version of app is on the [DEPLOY](https://businesstripreimburseme
 ## About
 This pplication has 2 views (end user + administrator) with different capabilities:
 For the end user:
-Markup*	Button to create a new reimbursement claim
+Markup : *	Button to create a new reimbursement claim
 *	Field to input the trip date
 *	Possibility to add multiple receipts from a dropdown list to claim refund (for example: taxi, hotel, plane ticket, train)
 *	Possibility to claim for a daily allowance:

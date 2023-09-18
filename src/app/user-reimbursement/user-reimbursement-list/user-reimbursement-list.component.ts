@@ -30,7 +30,7 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
-		this.storageService.fetchReimbursement();
+		// this.storageService.fetchReimbursement();
 		this.storageService.storeReimbursement();
 
 		this.subReimbursements$ = this.userReimbursementService.itemChanged.subscribe((reimbursements: Reimbursement[]) => {

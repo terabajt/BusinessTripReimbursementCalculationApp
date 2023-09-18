@@ -5,17 +5,17 @@ import { ToReimbursement } from "./toReimbursement.model";
 
 @Injectable({ providedIn: "root" })
 export class UserReimbursementService {
-	// private reimbursements: Reimbursement[] = [
-	// 	new Reimbursement("2023-08-18", "Taxi", 80.22, false),
-	// 	new Reimbursement("2023-08-19", "Hotel", 10.23, false),
-	// 	new Reimbursement("2023-08-20", "Plane ticket", 5, false),
-	// 	new Reimbursement("2023-08-20", "Plane ticket", 5, false),
-	// 	new Reimbursement("2023-08-20", "Plane ticket", 5, false),
-	// 	new Reimbursement("2023-08-20", "Plane ticket", 5, false),
-	// 	new Reimbursement("2023-08-21", "Taxi", 9.99, false),
-	// 	new Reimbursement("2023-08-22", "Train", 5.98, false),
-	// ];
-	private reimbursements: Reimbursement[] = [];
+	private reimbursements: Reimbursement[] = [
+		new Reimbursement("2023-08-18", "Taxi", 80.22, false),
+		new Reimbursement("2023-08-19", "Hotel", 10.23, false),
+		new Reimbursement("2023-08-20", "Plane ticket", 5, false),
+		new Reimbursement("2023-08-20", "Plane ticket", 5, false),
+		new Reimbursement("2023-08-20", "Plane ticket", 5, false),
+		new Reimbursement("2023-08-20", "Plane ticket", 5, false),
+		new Reimbursement("2023-08-21", "Taxi", 9.99, false),
+		new Reimbursement("2023-08-22", "Train", 5.98, false),
+	];
+	// private reimbursements: Reimbursement[] = [];
 	private settledLists: Reimbursement[] = [];
 
 	private totalToReimbursement;

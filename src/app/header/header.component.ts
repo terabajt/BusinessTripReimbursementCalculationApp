@@ -11,7 +11,8 @@ export class HeaderComponent implements OnInit {
 	constructor(private authService: AuthService) {}
 	date: string = new Date().toLocaleDateString("pl-PL");
 	userName: any;
-	amIAdmin = false;
+	amIAdmin = undefined;
+	amIUndefined = true;
 
 	ngOnInit(): void {
 		this.authService.user.subscribe(item => {

@@ -20,7 +20,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
 	user = new BehaviorSubject<User>(null);
-	amIAdmin = new BehaviorSubject<boolean>(null);
+	amIAdmin = new BehaviorSubject<boolean>(undefined);
 	private tokenExpirationTimer: any;
 	token: string = null;
 	constructor(private http: HttpClient, private router: Router) {}

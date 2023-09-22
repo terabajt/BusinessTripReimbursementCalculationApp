@@ -5,7 +5,8 @@
         <h2>Business Trip Reimbursement Calculation</h2>
         <p class="user-name" *ngIf="userName">Login as: <span>{{userName}}</span></p>
         <p *ngIf="amIAdmin">You are logged in as ADMIN</p>
-        <p *ngIf="!amIAdmin">You are logged in as USER</p>
+        <p *ngIf="amIAdmin === undefined ">You are not logged in. Please log in.</p>
+        <p *ngIf="!amIAdmin && amIAdmin !== undefined ">You are logged in as USER</p>
         <p class="date">Today is: {{ date }}</p>
       </div>
     </div>

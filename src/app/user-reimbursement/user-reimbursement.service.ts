@@ -34,8 +34,16 @@ export class UserReimbursementService {
 		this.itemChanged.next(this.reimbursements.slice());
 	}
 
+	setToReimbursementsFromFirebase(toReimbursement: ToReimbursement[]) {
+		this.toReimbursement = toReimbursement;
+		this.toReimbursementsChanged.next(this.toReimbursement.slice());
+	}
+
+	initLocalTo;
+
 	getToReimbursements() {
 		return this.toReimbursement.slice();
+		//TODO
 	}
 
 	getReimbursements() {

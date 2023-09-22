@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { Reimbursement } from "../../reimbursement.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserReimbursementService } from "../../user-reimbursement.service";
+import { DataStorageService } from "src/app/shared/data-storage.service";
 
 @Component({
 	selector: "app-user-reimbursement-item",
@@ -17,7 +18,8 @@ export class UserReimbursementItemComponent {
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
-		private reimbursementService: UserReimbursementService
+		private reimbursementService: UserReimbursementService,
+		private dataService: DataStorageService
 	) {}
 
 	onEdit(id: number) {
@@ -25,5 +27,6 @@ export class UserReimbursementItemComponent {
 	}
 	onAddToSettled(id: number) {
 		this.reimbursementService.addToSettledList(this.reimbursement, id);
+		this.dataService.storeToReimbursement();
 	}
 }

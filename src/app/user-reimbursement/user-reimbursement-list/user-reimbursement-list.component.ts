@@ -33,12 +33,17 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 	) {}
 
 	ngOnInit(): void {
+		this.storageService.fetchToReimbursement();
 		// this.storageService.fetchReimbursement();
 		this.authService.amIAdmin.subscribe(item => {
 			this.amIAdmin = item;
 		});
-		this.storageService.storeReimbursement();
 
+		this.subToReimbursements$ = this.userReimbursementService.toReimbursementsChanged.subscribe(
+			(toReimbursements: ToReimbursement[]) => {
+				this.toReimbursements = toReimbursements;
+			}
+		);
 		this.subReimbursements$ = this.userReimbursementService.itemChanged.subscribe((reimbursements: Reimbursement[]) => {
 			this.reimbursements = reimbursements;
 		});
@@ -65,5 +70,6 @@ export class UserReimbursementListComponent implements OnInit, OnDestroy {
 		this.subReimbursements$.unsubscribe();
 		this.subSettleds$.unsubscribe();
 		this.subReimbursements$.unsubscribe();
+		this.subToReimbursements$.unsubscribe();
 	}
 }
